@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dual Access Challenge</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <section id="landing-view" class="view">
+        <header class="page-header">
+          <h1>Secure Access Portal</h1>
+          <p class="subtitle">Enter the site through your designated pathway.</p>
+        </header>
+        <div class="panels">
+          <article class="panel agent-panel">
+            <header>
+              <h2>ChatGPT Agent</h2>
+              <p>Authenticate by selecting the numbers in precise ascending order.</p>
+            </header>
+            <div class="grid" id="puzzle-grid" aria-live="polite"></div>
+            <div class="controls">
+              <button id="retry-button" class="button retry" type="button">Retry</button>
+              <div class="action-group">
+                <button
+                  id="agent-enter"
+                  class="button primary disabled"
+                  type="button"
+                  aria-disabled="true"
+                >
+                  Enter Site
+                </button>
+                <span id="agent-status" class="status"></span>
+              </div>
+            </div>
+          </article>
+          <article class="panel human-panel">
+            <header>
+              <h2>Human</h2>
+              <p>No puzzle required. Proceed when ready.</p>
+            </header>
+            <div class="human-action">
+              <button id="human-enter" class="button primary" type="button">
+                Enter Site
+              </button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="special-view" class="view hidden" aria-live="polite">
+        <div class="special-card">
+          <h1>Here's your special number</h1>
+          <p id="special-number" class="special-number"></p>
+          <a href="/" class="button subtle">Return to access portal</a>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
