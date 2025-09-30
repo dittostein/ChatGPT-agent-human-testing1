@@ -13,8 +13,12 @@ def index():
     return send_from_directory(PUBLIC_DIR, "index.html")
 
 
-@app.get("/<path:_>")
-def spa(_):
+@app.get("/<path:path>")
+def spa(path: str):
+    file_path = PUBLIC_DIR / path
+    if path and file_path.is_file():
+        return send_from_directory(PUBLIC_DIR, path)
+
     return send_from_directory(PUBLIC_DIR, "index.html")
 
 
